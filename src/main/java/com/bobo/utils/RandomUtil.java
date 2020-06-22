@@ -121,6 +121,7 @@ public class RandomUtil {
 	        } catch (UnsupportedEncodingException e) {
 	            e.printStackTrace();
 	        }
+	        
 	            return str;
 	}
 
