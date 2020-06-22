@@ -47,18 +47,26 @@ public class RandomUtilTest {
 
 	@Test
 	public void testNextSimplifiedChineseCharacter() {
+		String character = RandomUtil.nextSimplifiedChineseCharacter();
+		System.out.println(character);
 	}
 
 	@Test
 	public void testNextSimplifiedChineseString() {
+		String string = RandomUtil.nextSimplifiedChineseString(10000);
+		System.out.println(string);
 	}
 
 	@Test
 	public void testGenerateChinesePersonName() {
+		String string = RandomUtil.generateChinesePersonName();
+		System.out.println(string);
 	}
 
 	@Test
 	public void testUuid() {
+		String string = RandomUtil.uuid();
+		System.out.println(string);
 	}
 
 }
