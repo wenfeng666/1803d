@@ -1,6 +1,7 @@
 package com.bobo.utils;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.UUID;
@@ -13,6 +14,28 @@ import java.util.UUID;
  * @date: 2020年6月22日 上午9:33:06
  */
 public class RandomUtil {
+	
+	/**
+	 * 
+	 * @Title: randomDate 
+	 * @Description: 返回在min-max之间的随机日期
+	 * @param min
+	 * @param max
+	 * @return
+	 * @return: Date
+	 */
+	public static Date randomDate(Date min,Date max) {
+		long t1 = min.getTime();//从1970到min 的毫秒值
+		long t2 = max.getTime();//从1970到max 的毫秒值
+		double d = Math.random();//产生一个0-1之间值
+		
+		long t = (long) (d * (t2 -t1 +1) + t1);//得到 t1 -t2之间的毫秒值
+		
+		return new Date(t);
+		
+	}
+	
+	
 
 	/**
 	 * 功能：获取随机正整数
@@ -110,9 +133,16 @@ public class RandomUtil {
 		 String str = null;
 	        int highPos, lowPos;
 	        Random random = new Random();
-	        highPos = (176 + random.nextInt(39));//区码，0xA0打头，从第16区开始，即0xB0=11*16=176,16~55一级汉字，56~87二级汉字
+	        
+	        highPos = (176 + random.nextInt(40) );//区码，0xA0打头，从第16区开始，即0xB0=11*16=176,16~55一级汉字，56~87二级汉字
 	        random=new Random();
-	        lowPos = 160 + RandomUtil.nextInt(1,94);//位码，0xA0打头，范围第1~94列
+	        //如果random.nextInt(40)=39 ，则是55区，因为55区， 只有90个汉字，所以需要特殊处理一下
+	        //49+176=215
+	        if(highPos==215)
+	        lowPos=160+89;
+	        else {
+	        lowPos = 160+ RandomUtil.nextInt(1,94);//位码，0xA0打头，范围第1~94列
+	        }
 	        byte[] bArr = new byte[2];//一个简体中文是有2个字节组成
 	        bArr[0] = (new Integer(highPos)).byteValue();
 	        bArr[1] = (new Integer(lowPos)).byteValue();

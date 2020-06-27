@@ -1,8 +1,28 @@
 package com.bobo.utils;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.junit.Test;
 
 public class RandomUtilTest {
+	
+	@Test
+	public void testRandomDate() {
+		
+		
+		//2010年1月1日
+		Calendar c = Calendar.getInstance();
+		c.set(2010, 0, 1);
+		for (int i = 0; i <1000; i++) {
+			Date date = RandomUtil.randomDate(c.getTime(), new Date());
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			System.out.println(df.format(date));
+		}
+		
+		
+	}
 
 	@Test
 	public void testNextInt() {
@@ -53,7 +73,7 @@ public class RandomUtilTest {
 
 	@Test
 	public void testNextSimplifiedChineseString() {
-		String string = RandomUtil.nextSimplifiedChineseString(10000);
+		String string = RandomUtil.nextSimplifiedChineseString(50);
 		System.out.println(string);
 	}
 
