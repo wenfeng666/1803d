@@ -6,6 +6,8 @@ import java.util.Date;
 
 import org.junit.Test;
 
+import com.jwf.utils.RandomUtil;
+
 public class RandomUtilTest {
 	
 	@Test
@@ -73,7 +75,7 @@ public class RandomUtilTest {
 
 	@Test
 	public void testNextSimplifiedChineseString() {
-		String string = RandomUtil.nextSimplifiedChineseString(50);
+		String string = RandomUtil.nextSimplifiedChineseString(5000);
 		System.out.println(string);
 	}
 

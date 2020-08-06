@@ -1,4 +1,4 @@
-package com.bobo.utils;
+package com.jwf.utils;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -7,10 +7,33 @@ import java.util.Date;
  * 
  * @ClassName: DateUtil
  * @Description: 日期处理类
- * @author: charles
+ * @author: jwf
  * @date: 2020年6月20日 上午9:27:33
  */
 public class DateUtil {
+
+	// 计算传入日期到现在的月数
+	public static int getMonth(Date date) {
+		
+	   //方法1
+	   /*long t1 = date.getTime();//传入的
+		 long t2 = new Date().getTime();//当前的
+		 int t =(int) ((t2 - t1)/1000/60/60/24/30);
+		return t;*/
+	//方法2
+		
+		// 当前的年月
+		  Calendar c = Calendar.getInstance();// 
+		  int now_year = c.get(Calendar.YEAR);//当前年
+		  int now_month = c.get(Calendar.MONTH);//当前月2
+		 //传入的年月 
+		  Calendar c2 = Calendar.getInstance();// 
+		  c2.setTime(date);
+		  int param_year= c2.get(Calendar.YEAR);//传入的年 
+		  int param_month = c2.get(Calendar.MONTH);//传入的月
+		  int month =(now_year -param_year)*12 + (now_month -param_month);// 
+		  return month;
+	}
 
 	/**
 	 * 功能：根据生日计算年龄 示例：现在是2020-6-20，如果生日是2000-6-23，那结果是19
@@ -128,8 +151,8 @@ public class DateUtil {
 		long t2 = new Date().getTime();// 当前系统日期的毫米值。即 从1970-1-1 到现在的毫米值
 		long t = t2 - t1;// 获取两个时间的差值
 		long minute = t / 1000 / 60;// 分钟
-		if(t2<t1)
-		 return "未来时间";
+		if (t2 < t1)
+			return "未来时间";
 		if (minute / 60 / 24 / 30 / 12 >= 1)
 			return minute / 60 / 24 / 30 / 12 + "年前";
 		else if (minute / 60 / 24 / 30 >= 1)
@@ -138,9 +161,9 @@ public class DateUtil {
 			return minute / 60 / 24 + "天前";
 		else if (minute / 60 >= 1)
 			return minute / 60 + "小时前";
-		else if (minute> 5)//
+		else if (minute > 5)//
 			return minute + "分钟前";
-		else 
+		else
 			return "刚刚";
 	}
 

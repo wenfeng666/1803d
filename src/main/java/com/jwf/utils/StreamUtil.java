@@ -1,4 +1,4 @@
-package com.bobo.utils;
+package com.jwf.utils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,7 +16,7 @@ import java.util.List;
  * @ClassName: StreamUtil
  * @Description: 流处理
  * 
- * @author: charles
+ * @author: jwf
  * @date: 2020年6月24日 上午8:17:30
  */
 public class StreamUtil {

@@ -1,10 +1,14 @@
-package com.bobo.utils;
+package com.jwf.utils;
+
+import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 
  * @ClassName: StringUtil
  * @Description: 字符串工具类
- * @author: charles
+ * @author: jwf
  * @date: 2020年6月19日 下午3:04:47
  */
 public class StringUtil {
@@ -14,6 +18,22 @@ public class StringUtil {
 
 	private static final String LETTER_REGEX = "[a-zA-Z]+";
 
+	/*
+	* 方法功能：根据正则在字符串提取一段值，用于后面在url地址里提取ID值。
+	* 例如在“http://news.cnstock.com/news,yw-201908-4413224.htm”把“4413224”提取出来。
+	* 
+	* regex = [0-9]+(?=[^0-9]*$)
+	*/
+	public static String getPlaceholderValue(String src, String regex){
+		
+		  Pattern p = Pattern.compile(regex);//编译规则
+		  Matcher matcher = p.matcher(src);//Pattern 匹配src
+		  if(matcher.find()) {//如果找到
+			return  matcher.group();//返回匹配到的字符串
+		  }
+		return null;
+	}
+	
 	/**
 	 * 功能：隐藏字符串 示例：StringUtil.hidden("13856237928", 3,7) -> "138****7928"
 	 * 参数1：src，源字符串 参数2：start，从开始的位置隐藏，如果为空，则全部不隐藏，
@@ -107,4 +127,20 @@ public class StringUtil {
 		return src != null && src.length() > 0;
 	}
 
+	
+	/**
+	 * 功能说明：实现判断传入的字符串是否为包含http的url地址
+	 */
+	public static boolean isHttpUrl(String src){
+		try {
+			URL url = new URL(src);
+			url.openStream();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//System.out.println("不是合法的url");
+		return false;
+	
+	}
 }

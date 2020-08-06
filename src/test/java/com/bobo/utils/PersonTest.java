@@ -5,6 +5,8 @@ import java.util.Date;
 
 import org.junit.Test;
 
+import com.jwf.utils.RandomUtil;
+
 public class PersonTest {
 
 	@Test
@@ -13,6 +15,7 @@ public class PersonTest {
 		for (int i = 0; i < 10000; i++) {
 			Person p = new Person();	
 		
+			
 	
 		//姓名属性值调用StringUtil.generateChineseName()创建（4分）
 		p.setName(RandomUtil.generateChinesePersonName());

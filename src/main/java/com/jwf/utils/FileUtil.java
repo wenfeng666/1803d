@@ -1,4 +1,4 @@
-package com.bobo.utils;
+package com.jwf.utils;
 
 import java.io.File;
 
@@ -6,7 +6,7 @@ import java.io.File;
  * 
  *  FileUtil 
  *  TODO
- *  charles
+ *  jwf
  *  2020年5月25日 上午10:41:12
  */
 public class FileUtil {

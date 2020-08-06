@@ -6,7 +6,20 @@ import java.util.Date;
 
 import org.junit.Test;
 
+import com.jwf.utils.DateUtil;
+
 public class DateUtilTest {
+	
+	@Test
+	public void testGetMonth() {
+		
+		//2000-6-23
+		Calendar c = Calendar.getInstance();
+		//月份 0-11
+		c.set(2019, 11, 8);
+		int i = DateUtil.getMonth(c.getTime());	
+		System.out.println(i);
+	}
 
 	@Test
 	public void testGetAge() {
@@ -14,7 +27,7 @@ public class DateUtilTest {
 		//2000-6-23
 		Calendar c = Calendar.getInstance();
 		//月份 0-11
-		c.set(2000, 4, 23);
+		c.set(2019, 6, 8);
 		System.out.println(DateUtil.getAge(c.getTime()));
 	}
 

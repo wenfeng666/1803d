@@ -1,9 +1,26 @@
 package com.bobo.utils;
 
+import java.util.Date;
+
 import org.junit.Test;
+
+import com.jwf.utils.StringUtil;
 
 public class StringUtilTest {
 	
+	
+	
+	
+	@Test
+	public void testGetValue() {
+		//Date date = new Date(1595028754000l);
+		//System.out.println(date);
+		String url ="http://news.cnstock.com/news,yw-201908-a4413224.htm";
+		
+		
+		String value = StringUtil.getPlaceholderValue(url, "[0-9]+(?=[^0-9]*$)");
+		System.out.println(value);
+	}
 	@Test
 	public void testHidden() {
 		String hidden = StringUtil.hidden("abcdedfg", 1, 7);

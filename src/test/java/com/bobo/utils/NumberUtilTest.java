@@ -1,9 +1,22 @@
 package com.bobo.utils;
 
+
 import org.junit.Test;
+
+import com.jwf.utils.NumberUtil;
 
 public class NumberUtilTest {
 
+	
+	@Test
+	public void testGetPercent() {
+		int percent = NumberUtil.getPercent(51, 68);
+		int percent2 = NumberUtil.getPercent(20, 100);
+		int percent3 = NumberUtil.getPercent(1, 3);
+		System.out.println(percent);
+		System.out.println(percent2);
+		System.out.println(percent3);
+	}
 	@Test
 	public void testIsNUmber() {
 		System.out.println(NumberUtil.isNUmber("abc"));

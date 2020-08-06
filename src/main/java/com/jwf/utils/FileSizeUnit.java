@@ -1,9 +1,9 @@
-package com.bobo.utils;
+package com.jwf.utils;
 /**
  * 
  *  FileSizeUnit 
  *  TODO  文件大小的枚举类
- *  charles
+ *  jwf
  *  2020年5月25日 上午10:44:12
  */
 public enum FileSizeUnit {

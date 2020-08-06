@@ -6,6 +6,9 @@ import java.io.File;
 
 import org.junit.Test;
 
+import com.jwf.utils.FileSizeUnit;
+import com.jwf.utils.FileUtil;
+
 public class FileUtilTest {
 
 	@Test

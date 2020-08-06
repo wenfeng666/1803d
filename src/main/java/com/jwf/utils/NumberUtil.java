@@ -1,4 +1,4 @@
-package com.bobo.utils;
+package com.jwf.utils;
 
 import java.math.BigDecimal;
 
@@ -6,7 +6,7 @@ import java.math.BigDecimal;
  * 
  * @ClassName: NumberUtil
  * @Description: 数字工具类
- * @author: charles
+ * @author: jwf
  * @date: 2020年6月20日 上午8:33:32
  */
 public class NumberUtil {
@@ -14,6 +14,20 @@ public class NumberUtil {
 	private static final String NUMBER_REGEX="[0-9]+";//全是数字正则
 
 	private static final String REAL_REGEX="^(-)?[0-9]+(\\.[0-9]+)?$";
+	
+	/*
+	* 百分比计算方法，返回值只要整数不需要小数。
+	* 给一个当前数，和一个总数，计算当前数百分占比，例如参数为5和10，方法内部
+	* 5除以10得0.5，再乘以100，返回50，注意四舍五入。页面就可以显示50%
+	*/
+	public static int getPercent(int current, int total){
+		return (int) ((current *1.0 /total)*100);
+		
+		
+	}
+	
+	
+	
 	/**
 	 * 功能：判断是否全部为数字 示例：
 	 *  NumberUtil.isNUmber("abc") -> false
